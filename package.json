@@ -1,0 +1,226 @@
+{
+  "name": "create-store-helper",
+  "version": "0.0.3",
+  "private": true,
+  "author": "",
+  "main": "dist",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "reload-img": "auto-require-files src/assets HBAssets",
+    "fixApis": "node scripts/fixInterfaceApis.js",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "lib": "node scripts/build.lib.js",
+    "lib-dep": "copyDependencies=1 node scripts/build.lib.js",
+    "publish": "npm run lib && cd dist && npm publish --access public",
+    "deploy": "jest --ci && yarn build && bash scripts/deploy.sh root@xxxxxx deploy",
+    "rollback": "bash deploy.sh root@xxxxxx rollback",
+    "lint-ci": "eslint src --ext .js --cache --fix",
+    "test-ci": "jest --ci",
+    "test": "node scripts/test.js"
+  },
+  "dependencies": {
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.2.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.2.0",
+    "@mdx-js/loader": "^0.16.6",
+    "@svgr/webpack": "2.4.1",
+    "auto-require-files": "^1.0.11",
+    "axios": "^0.18.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "9.0.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-named-asset-import": "^0.2.3",
+    "babel-plugin-react-docgen": "^2.0.0",
+    "babel-plugin-styled-components": "^1.9.4",
+    "babel-preset-react-app": "^6.1.0",
+    "bfj": "6.1.1",
+    "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "chalk": "2.4.1",
+    "css-loader": "1.0.0",
+    "dotenv": "6.0.0",
+    "dotenv-expand": "4.2.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "7.11.1",
+    "fastclick": "^1.0.6",
+    "file-loader": "2.0.0",
+    "fork-ts-checker-webpack-plugin-alt": "0.4.14",
+    "fs-extra": "7.0.0",
+    "history": "^4.7.2",
+    "html-webpack-plugin": "4.0.0-alpha.2",
+    "husky": "^1.3.1",
+    "i18fn": "^1.2.9",
+    "identity-obj-proxy": "3.0.0",
+    "immutable": "^4.0.0-rc.12",
+    "jest": "^23.6.0",
+    "jest-pnp-resolver": "1.0.1",
+    "jest-resolve": "23.6.0",
+    "jest-styled-components": "^6.3.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "0.4.3",
+    "mix-color": "^1.0.12",
+    "object-fit": "^0.4.3",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pnp-webpack-plugin": "1.1.0",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "postcss-preset-env": "6.0.6",
+    "postcss-safe-parser": "4.0.1",
+    "prettier": "^1.15.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-app-polyfill": "^0.1.3",
+    "react-dev-utils": "^6.1.1",
+    "react-dom": "^16.7.0",
+    "react-dom-pseudo": "^1.1.20",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^4.3.1",
+    "react-spring": "^6.1.10",
+    "react-test-renderer": "^16.7.0-alpha.2",
+    "react-test-renderer-helper": "^0.3.1",
+    "react-tiny-virtual-list": "^2.2.0",
+    "resolve": "1.8.1",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.0",
+    "styled-components": "^4.1.3",
+    "terser-webpack-plugin": "1.1.0",
+    "url-loader": "1.1.1",
+    "webpack": "4.19.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-dev-server": "3.1.11",
+    "webpack-manifest-plugin": "2.0.4",
+    "webpack-node-externals": "^1.7.2",
+    "workbox-webpack-plugin": "3.6.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-ci",
+      "pre-push": "yarn test-ci"
+    }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**/HB**.js",
+      "**/src/**/action*.{js,jsx}",
+      "**/src/HBComponents/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/HBServiceWorker.js",
+      "!**/HBInitHTMLENV.js",
+      "!**/src/index.js"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
+      "<rootDir>/tests/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel-README": "此 babel 仅用于 jest",
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      "react-docgen",
+      "babel-plugin-styled-components",
+      [
+        "@babel/plugin-proposal-optional-chaining",
+        {
+          "loose": false
+        }
+      ],
+      [
+        "@babel/plugin-proposal-nullish-coalescing-operator",
+        {
+          "loose": false
+        }
+      ],
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-pipeline-operator",
+        {
+          "proposal": "minimal"
+        }
+      ],
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "src": "./src"
+          }
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-name/create-store-helper.git"
+  }
+}
